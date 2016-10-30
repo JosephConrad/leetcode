@@ -88,5 +88,8 @@ ENV/
 # Rope project settings
 .ropeproject
 
-#Ignore folder mac
+# Ignore folder mac
 .DS_Store
+
+# Not needed in repo
+create_name.py
