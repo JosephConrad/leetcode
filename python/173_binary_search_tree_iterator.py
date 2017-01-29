@@ -8,8 +8,8 @@ class TreeNode(object):
 
 class BSTIterator(object):
     def __init__(self, root):
-        self.stack = []
-        self.current = root
+        self.stack = [root] if root is not None else []
+        self.visited = set()
         """
         :type root: TreeNode
         """
@@ -18,31 +18,38 @@ class BSTIterator(object):
         """
         :rtype: bool
         """
-        return self.stack or self.current
+        return len(self.stack) is not 0
 
-    def nextNode(self):
+    def next(self):
         """
         :rtype: int
         """
-        while self.current:
-            self.stack.append(self.current)
-            self.current = self.current.left
+        node = self.stack[-1]
+        while node.left and node.left not in self.visited:
+            l = node.left
+            self.stack.append(l)
+            self.visited.add(l)
+            node = l
+        result = node.val
+        self.stack.pop()
+        if node.right:
+            self.stack.append(node.right)
+        return result
 
-        self.current = self.stack.pop()
-        node = self.current
-        self.current = self.current.right
 
-        return node
-
-
-if __name__ == '__main__':
-    tree = TreeNode(2)
-    tree.left = TreeNode(1)
-    tree.right = TreeNode(4)
-    right = tree.right
-    right.left = TreeNode(3)
-    right.right = TreeNode(5)
+if __name__ == "__main__":
+    tree = TreeNode(4)
+    tree.left = TreeNode(2)
+    tree.right = TreeNode(5)
+    tree.left.left = TreeNode(1)
+    tree.left.right = TreeNode(3)
 
     i, v = BSTIterator(tree), []
     while i.hasNext():
-        print i.nextNode().val
+        v.append(i.next())
+    print v
+
+    i, v = BSTIterator(None), []
+    while i.hasNext():
+        v.append(i.next())
+    print v

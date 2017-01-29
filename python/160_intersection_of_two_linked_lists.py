@@ -1,4 +1,11 @@
-# Definition for singly-linked list.
+# another solutions:
+#  - https://leetcode.com/articles/intersection-two-linked-lists/
+#  - fifth approach:
+#    - reverse lists
+#    - move pointers until the intersection point
+#    - reverse again (for O(1))
+
+
 class ListNode(object):
     def __init__(self, x):
         self.val = x

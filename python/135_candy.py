@@ -1,33 +1,28 @@
-from sys import maxint
+import operator
 
 
-def value(tab, i, n, guard=-maxint):
-    if i in {-1, n}:
-        return guard
-    return tab[i]
+class Solution(object):
+    def candy(self, ratings):
+        """
+        :type ratings: List[int]
+        :rtype: int
+        """
+        n = len(ratings)
+        candies = [1] * n
+        return self.find_minima(candies, ratings)
+
+    def find_minima(self, candies, ratings):
+        candies[0] = 1
+        for i in range(1, len(ratings)):
+            if ratings[i] > ratings[i - 1]:
+                candies[i] = candies[i - 1] + 1
+        for i in reversed(xrange(1, len(ratings))):
+            if ratings[i - 1] > ratings[i] and candies[i - 1] <= candies[i]:
+                candies[i - 1] = candies[i] + 1
+        return reduce(operator.add, candies)
 
 
-def find_local_mins(tab):
-    local_mins = []
-    n = len(tab)
-
-    for i in range(n):
-        left = value(tab, i - 1, n, maxint)
-        middle = value(tab, i, n, maxint)
-        right = value(tab, i + 1, n, maxint)
-        if left > middle < right:
-            local_mins.append(i)
-
-    return local_mins
-
-
-print find_local_mins([6, 5, 0, 1, 9, 3, 4, 5, 6, 4, 1])
-
-
-def min_candies(tab, local_mins):
-    max_index
-
-
-def candies(tab):
-    local_mins = find_local_mins(tab)
-    return min_candies(tab, local_mins)
+if __name__ == "__main__":
+    print Solution().candy([3, 2, 4, 7, 2, 1, 3, 8, 9, 0, 6, 2, 1])
+    print Solution().candy([1, 2, 3, 2, 3, 5, 2, 5])
+    print Solution().candy([2, 3, 2])
