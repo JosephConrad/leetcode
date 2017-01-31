@@ -14,7 +14,8 @@ class Solution(object):
         :type num: int
         :rtype: bool
         """
-        if num < 1: return False
+        if num < 1:
+            return False
         binary = map(int, "{0:b}".format(num))
         return binary[0] == 1 and len(binary[1:]) % 2 == 0 and sum(binary[1:]) == 0
 

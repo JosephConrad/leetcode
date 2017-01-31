@@ -43,6 +43,7 @@ class Solution(object):
                 self.n_queens(board + [j], i + 1, n, acc)
         return acc
 
+
     def print_board(self, conf):
         result = []
         for queen in conf:
@@ -53,4 +54,4 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    print Solution().totalNQueens(4)
+    print Solution().solveNQueens(4)

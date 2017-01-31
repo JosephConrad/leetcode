@@ -1,6 +1,6 @@
-def is_valid(numbers):
-    numbers = map(int, list(filter(lambda x: x is not '.', list(numbers))))
-    return sum(set(numbers)) == sum(numbers)
+def is_valid(solution):
+    solution = map(int, filter(lambda x: x != '.', list(solution)))
+    return sum(set(solution)) == sum(solution)
 
 
 def check(solutions):
@@ -11,6 +11,14 @@ def check(solutions):
 
 
 class Solution(object):
+    def solveSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: void Do not return anything, modify board in-place instead.
+        """
+
+
+class Solution1(object):
     def isValidSudoku(self, board):
         squares = []
         for row in range(0, 9, 3):
@@ -46,5 +54,3 @@ print sol.isValidSudoku([".87654321",
                          "7........",
                          "8........",
                          "9........"])
-
-
