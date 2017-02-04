@@ -13,7 +13,7 @@ class Solution(object):
         :rtype: bool
         """
         if not root:
-            return False
+            return True
         return self.symmetric(root.left, root.right)
 
     def symmetric(self, l, r):
