@@ -30,16 +30,15 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    if __name__ == "__main__":
-        tree = TreeNode(3)
-        tree.left = TreeNode(2)
-        tree.right = TreeNode(1)
-        tree.left.left = TreeNode(4)
-        tree.left.left.left = TreeNode(0)
-        tree.right.right = TreeNode(5)
-        Solution().recoverTree(tree)
-        tree = TreeNode(3)
-        tree.left = TreeNode(2)
-        tree.right = TreeNode(1)
-        Solution().recoverTree(tree)
-        Solution().recoverTree([])
+    tree = TreeNode(3)
+    tree.left = TreeNode(2)
+    tree.right = TreeNode(1)
+    tree.left.left = TreeNode(4)
+    tree.left.left.left = TreeNode(0)
+    tree.right.right = TreeNode(5)
+    Solution().recoverTree(tree)
+    tree = TreeNode(3)
+    tree.left = TreeNode(2)
+    tree.right = TreeNode(1)
+    Solution().recoverTree(tree)
+    Solution().recoverTree([])
