@@ -11,8 +11,6 @@ class Solution(object):
             left.append(left[i - 1] * nums[i])
             right.append(right[i - 1] * nums[n - i - 1])
         right.reverse()
-        print left
-        print right
         result = []
         for i in range(n):
             result.append(self.get(left, i - 1) * self.get(right, i + 1))
