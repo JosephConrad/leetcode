@@ -1,3 +1,6 @@
+import operator
+
+
 # 137. Single Number  ii
 #
 # Given an array of integers, every element appears three times except for one.
@@ -7,8 +10,12 @@
 # Your algorithm should have a linear runtime complexity. Could you implement it
 #   without using extra memory?
 
-
 class Solution(object):
+    def singleNumber(self, nums):
+        return reduce(operator.xor, nums)
+
+
+class Solution2(object):
     def singleNumber(self, nums):
         result = 0
         for i in range(32):
@@ -25,7 +32,7 @@ class Solution(object):
         return bit_sum
 
 
-class Solution2(object):
+class Solution3(object):
     def singleNumber(self, nums):
         freq = dict()
         for elt in nums:
