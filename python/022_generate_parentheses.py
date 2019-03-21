@@ -18,5 +18,5 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    print Solution().generateParenthesis(3)
-    print Solution().generateParenthesis(4)
+    print(Solution().generateParenthesis(3))
+    print(Solution().generateParenthesis(4))

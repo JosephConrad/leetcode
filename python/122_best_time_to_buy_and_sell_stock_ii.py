@@ -15,9 +15,7 @@ class Solution(object):
         """
         result = 0
         for i in range(1, len(prices)):
-            diff = prices[i] - prices[i - 1]
-            if diff > 0:
-                result += diff
+            diff += max(0, prices[i] - prices[i - 1]) 
 
         return result
 

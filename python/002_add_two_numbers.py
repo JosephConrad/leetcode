@@ -21,7 +21,7 @@ class Solution(object):
         overflow = 0
         while l1 or l2:
             val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + overflow
-            node, overflow = ListNode(val % 10), val / 10
+            node, overflow = ListNode(val % 10), val // 10
             last.next, last = node, node
             if l1:
                 l1 = l1.next
@@ -40,12 +40,12 @@ if __name__ == "__main__":
     list2 = ListNode(5)
     list2.next = ListNode(6)
     list2.next.next = ListNode(4)
-    print Solution().addTwoNumbers(list1, list2)
+    print(Solution().addTwoNumbers(list1, list2))
     list1 = ListNode(2)
     list1.next = ListNode(4)
     list1.next.next = ListNode(3)
     list2 = ListNode(5)
     list2.next = ListNode(6)
     list2.next.next = ListNode(9)
-    print Solution().addTwoNumbers(list1, list2)
+    print(Solution().addTwoNumbers(list1, list2))
 
